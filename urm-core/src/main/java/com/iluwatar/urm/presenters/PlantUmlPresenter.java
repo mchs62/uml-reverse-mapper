@@ -84,8 +84,12 @@ public class PlantUmlPresenter implements Presenter {
     String className = domainClass.getUmlName();
     switch (domainClass.getClassType()) {
       case CLASS:
-        return (domainClass.isAbstract() ? "abstract " : "")
-            + visi + "class " + className;
+      if(domainClass.isAbstract()){
+        return visi + "abstract "+ "class " + className;
+      }
+      else{
+        return visi + "class " + className;
+      }
       case INTERFACE:
         return visi + "interface " + className;
       case ENUM:
